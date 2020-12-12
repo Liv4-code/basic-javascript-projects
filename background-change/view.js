@@ -5,5 +5,4 @@ const backgrounds = ["url('images/fence.jpg')", "url('images/palm.jpg')", "url('
 button.addEventListener("click", () => {
     let randomNum = Math.floor(Math.random() * backgrounds.length);
     body.style.backgroundImage = backgrounds[randomNum];
-    console.log(body.style.backgroundImage);
 });
