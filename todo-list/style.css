@@ -12,6 +12,7 @@ h1 {
 
 #todoList {
     width: 30%;
+    /* min-height: 20px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
