@@ -32,11 +32,12 @@ todoList.addEventListener("click", e => {
 searchInputField.addEventListener("keyup", () => {
     // Reference to Todo list items:
     const todos = document.querySelectorAll("#todoList li");
+    const searchValue = searchInputField.value.trim().toLowerCase();
 
     todos.forEach(todo => {
-        if(todo.textContent.includes(searchInputField.value)){
-            console.log("shout hooray!!!");
-            // toggle/add class back to list item.
+        if(todo.textContent.toLowerCase().includes(searchValue)){
+            todo.classList.remove("todoListItem");
+            todo.nextSibling.classList.remove("todoListItem");
         } else {
             todo.classList.add("todoListItem");
             todo.nextSibling.classList.add("todoListItem");
