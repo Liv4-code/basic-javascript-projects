@@ -10,7 +10,7 @@ addInput.addEventListener("submit", e => {
     const inputValue = document.querySelector("#addInput").value.trim();
 
     if(inputValue !== ""){
-        todoList.innerHTML += `<span class="list-item"><li>${inputValue}<input class="option checkbox" type="checkbox"></li><button class="option delete">X</button></span>`;
+        todoList.innerHTML += `<span><li>${inputValue}<input class="option checkbox" type="checkbox"></li><button class="option delete">X</button></span>`;
         addInput.reset();
     }
 });
@@ -30,20 +30,16 @@ todoList.addEventListener("click", e => {
 // Searching Todo's:
 
 searchInputField.addEventListener("keyup", () => {
-    const searchInput = searchInputField.value.trim();
-    const listItemValues = todoList.querySelectorAll("li");
+    // Reference to Todo list items:
+    const todos = document.querySelectorAll("#todoList li");
 
-    listItemValues.forEach(item => {
-        // console.log(item.textContent);
-        if(item.textContent.includes(searchInput)){
-            console.log("yes");
+    todos.forEach(todo => {
+        if(todo.textContent.includes(searchInputField.value)){
+            console.log("shout hooray!!!");
+            // toggle/add class back to list item.
+        } else {
+            todo.classList.add("todoListItem");
+            todo.nextSibling.classList.add("todoListItem");
         }
     });
-    // if(searchInput){
-
-    // }
-    //Convert array into string of todo list item
-    //Compare input string value to todo list item string values
-    //Compare searchInput to listItemValues
-    // console.log(listItemValues);
 });
