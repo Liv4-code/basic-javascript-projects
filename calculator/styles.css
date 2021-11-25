@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: repeat(6, 50px);
+    grid-template-columns: repeat(4, 100px);
+}
+
+output {
+    background-color: rgb(224, 222, 219);
+    grid-column: span 4;
+}
+
+.delete {
+    grid-column: span 3;
+}
+
+.zero {
+    grid-column: span 2;
+}
