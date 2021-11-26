@@ -3,6 +3,10 @@ const numButtons = document.querySelectorAll(".number");
 const deleteButton = document.querySelector(".delete");
 const decimalPoint = document.querySelector(".decimal");
 const equalsButton = document.querySelector(".equals");
+const divideButton = document.querySelector(".divide");
+const multiplicationButton = document.querySelector(".multiply");
+const minusButton = document.querySelector(".minus");
+const additionButton = document.querySelector(".add");
 const opButtons = document.querySelectorAll(".operation");
 
 calcButtons.addEventListener("click", (e) => {
@@ -10,6 +14,14 @@ calcButtons.addEventListener("click", (e) => {
         console.log("You clicked the delete button");
     } else if (e.target === equalsButton) {
         console.log("Equals?...");
+    } else if (e.target === divideButton) {
+        console.log("We stand divided!");
+    } else if (e.target === multiplicationButton) {
+        console.log("Multiply that number yo!");
+    } else if (e.target === minusButton) {
+        console.log("Take my breath away");
+    } else if (e.target === additionButton) {
+        console.log("Me plus you");
     } else {
         const selected = e.target.textContent;
         const output = (document.querySelector("output").innerHTML += selected);
@@ -17,5 +29,7 @@ calcButtons.addEventListener("click", (e) => {
     }
 });
 
-// Capture output
-// Change output each time user clicks on a button
+// create an object
+// that contains methods for operations
+// assigns values to number buttons
+// and appends to output
