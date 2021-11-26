@@ -1,8 +1,14 @@
-const calcButtons = document.querySelector(".calculator");
+const calcButtons = document.querySelector(".calc-buttons");
+const numButtons = document.querySelectorAll(".number");
+const decimalPoint = document.querySelector(".decimal");
+const opButtons = document.querySelectorAll(".operation");
 
 calcButtons.addEventListener("click", (e) => {
-    let output = document.querySelector("output").innerHTML;
     const selected = e.target.textContent;
+
+    const output = (document.querySelector("output").innerHTML += selected);
+
+    console.log(output);
 });
 
 // Capture output
