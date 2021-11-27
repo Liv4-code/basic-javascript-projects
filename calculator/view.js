@@ -9,6 +9,29 @@ const minusButton = document.querySelector(".minus");
 const additionButton = document.querySelector(".add");
 const opButtons = document.querySelectorAll(".operation");
 
+class Calculator {
+    constructor() {
+        delete(){
+
+        }
+        divide(){
+
+        }
+        multiply(){
+
+        }
+        minus(){
+
+        }
+        add(){
+
+        }
+        calculate(){
+        
+        }
+    }
+}
+
 calcButtons.addEventListener("click", (e) => {
     if (e.target === deleteButton) {
         console.log("You clicked the delete button");
@@ -24,6 +47,7 @@ calcButtons.addEventListener("click", (e) => {
         console.log("Me plus you");
     } else {
         const selected = e.target.textContent;
+        // change string to number
         const output = (document.querySelector("output").innerHTML += selected);
         return output;
     }
@@ -31,5 +55,4 @@ calcButtons.addEventListener("click", (e) => {
 
 // create an object
 // that contains methods for operations
-// assigns values to number buttons
 // and appends to output
