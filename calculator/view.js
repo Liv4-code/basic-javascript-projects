@@ -12,7 +12,7 @@ const outputField = document.querySelector("output");
 
 let calculatorObject = {
     currentValue: "",
-    previousValue: 0,
+    previousValue: null,
 };
 
 // Listen for click event on each number button
@@ -24,6 +24,28 @@ numButtons.forEach((number) => {
         let numberOutput = Number(output);
         // Display number output to user:
         outputField.innerHTML = numberOutput;
+        console.log(numberOutput);
+    });
+});
+
+opButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        // If user clicks equals button display current value
+
+        // When user clicks on operation button, store the operand
+        // in previousValue property on calculator object
+        calculatorObject.previousValue = calculatorObject.currentValue;
+        console.log(calculatorObject.previousValue);
+        // Then set currentValue to empty string and clear output field
+        calculatorObject.currentValue = "";
+        outputField.innerHTML = calculatorObject.currentValue;
+        console.log(calculatorObject.currentValue);
+
+        if (e.target === divideButton) {
+            console.log("you clicked the divide button");
+            // divide
+            // take previous value / current value
+        }
     });
 });
 
