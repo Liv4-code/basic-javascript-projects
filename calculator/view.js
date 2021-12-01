@@ -1,20 +1,46 @@
-const calcButtons = document.querySelector(".calc-buttons");
+const buttons = document.querySelectorAll("button");
+const outputField = document.querySelector("output");
 const numButtons = document.querySelectorAll(".number");
 const opButtons = document.querySelectorAll(".operation");
 const deleteButton = document.querySelector(".delete");
 const decimalPoint = document.querySelector(".decimal");
 const equalsButton = document.querySelector(".equals");
-const outputField = document.querySelector("output");
-
-// What if we store the operator and concatenate 
+const divideButton = document.querySelector(".divide");
+const multiplyButton = document.querySelector(".multiply");
+const minusButton = document.querySelector(".minus");
+const additionButton = document.querySelector(".add");
 
 let calculatorObject = {
     currentValue: "",
     previousValue: null,
-    operation: undefined,
+    operation: "",
 };
 
-// Listen for click event on each number button
+// Add a class to operator key when pressed to show that it's active
+
+buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        // When user clicks on operation button, store the operand
+        if (e.target === deleteButton) {
+            calculatorObject.operation = "delete";
+        } else if (e.target === divideButton) {
+            calculatorObject.operation = "divide";
+            console.log(calculatorObject.operation);
+        } else if (e.target === multiplyButton) {
+            calculatorObject.operation = "multiply";
+            console.log(calculatorObject.operation);
+        } else if (e.target === minusButton) {
+            calculatorObject.operation = "minus";
+            console.log(calculatorObject.operation);
+        } else if (e.target === additionButton) {
+            calculatorObject.operation = "add";
+            console.log(calculatorObject.operation);
+        }
+        // Then set currentValue to empty string
+    });
+});
+
+// Set current number values :
 numButtons.forEach((number) => {
     number.addEventListener("click", () => {
         // Each clicked button will concatenate its value to the currenValue property in object
@@ -27,61 +53,27 @@ numButtons.forEach((number) => {
     });
 });
 
-opButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-        // When user clicks on operation button, store the operand
-        // in previousValue property on calculator object
-        if (e.target === deleteButton) {
-            calculatorObject.currentValue = "";
-        } else if (e.target === divideButton) {
-            calculatorObject.previousValue = calculatorObject.currentValue;
-            calculatorObject.currentValue = "";
-            const answer =
-                calculatorObject.previousValue / calculatorObject.currentValue;
-            console.log(answer);
-        } else if (e.target === multiplicationButton) {
-            console.log("Multiply that number yo!");
-        } else if (e.target === minusButton) {
-            console.log("Take my breath away");
-        } else if (e.target === additionButton) {
-            console.log("Me plus you");
-        }
-        // Then set currentValue to empty string and clear output field
-        outputField.innerHTML = calculatorObject.currentValue;
-
-        if (e.target === divideButton) {
-            console.log("you clicked the divide button");
-        }
-    });
-});
-
 equalsButton.addEventListener("click", () => {
-    outputField.innerHTML = calculatorObject.currentValue;
+    compute(
+        calculatorObject.previousValue,
+        calculatorObject.operation,
+        calculatorObject.currentValue
+    );
 });
 
 const compute = (previousValue, operation, currentValue) => {
-    if(){
-
-    } else if(){
-
-    } else if(){
-
-    } else if(){
-
-    } else if(){
-
+    if (operation === "delete") {
+        console.log("deleted", previousValue, currentValue);
+    } else if (operation === "divide") {
+        console.log("divided", previousValue, currentValue);
+    } else if (operation === "multiply") {
+        console.log("multiplied", previousValue, currentValue);
+    } else if (operation === "minus") {
+        console.log("taken away !", previousValue, currentValue);
+    } else if (operation === "add") {
+        console.log("added", previousValue, currentValue);
     }
-
     // display answer in output field
 };
 
-// calcButtons.addEventListener("click", (e) => {
-//     let selected = e.target.textContent;
-//     let selectedNumber = Number(selected);
-//     console.log(typeof selectedNumber);
-
-//         else {
-//         const output = (document.querySelector("output").innerHTML += selected);
-//         return output;
-//     }
-// });
+outputField.innerHTML = calculatorObject.currentValue;
